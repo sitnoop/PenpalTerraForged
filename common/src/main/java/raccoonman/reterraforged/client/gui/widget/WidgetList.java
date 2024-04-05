@@ -75,9 +75,15 @@ public class WidgetList<T extends AbstractWidget> extends ContainerObjectSelecti
             widget.setY(top);
             widget.visible = true;
             widget.setWidth(optionWidth);
+<<<<<<< HEAD
             widget.setHeight(height - 1);	
             if(widget instanceof PresetEditorPage.Preview preview) {
             	widget.setHeight(widget.getWidth());
+=======
+            widget.height = (height - 1);	
+            if(widget instanceof PresetEditorPage.Preview preview) {
+            	widget.height = (widget.getWidth());
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
             }
             widget.render(guiGraphics, mouseX, mouseY, partialTicks);
         }

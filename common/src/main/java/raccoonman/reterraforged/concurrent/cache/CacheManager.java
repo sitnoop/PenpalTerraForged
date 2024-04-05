@@ -9,9 +9,20 @@ import java.util.function.IntFunction;
 import raccoonman.reterraforged.concurrent.cache.map.LongMap;
 import raccoonman.reterraforged.concurrent.cache.map.StampedBoundLongMap;
 
+<<<<<<< HEAD
 public class CacheManager {
 	private static final List<Cache<?>> CACHES = Collections.synchronizedList(new LinkedList<>());
 	
+=======
+@Deprecated
+public class CacheManager {
+	private static final List<Cache<?>> CACHES = Collections.synchronizedList(new LinkedList<>());
+	
+    public static <V extends ExpiringEntry> Cache<V> createCache(long expireTime, long pollInterval, TimeUnit unit) {
+    	return createCache(256, expireTime, pollInterval, unit);
+    }
+	
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	public static <V extends ExpiringEntry> Cache<V> createCache(int capacity, long expireTime, long pollInterval, TimeUnit unit) {
 		return createCache(capacity, expireTime, pollInterval, unit, StampedBoundLongMap::new);
 	}
@@ -22,11 +33,18 @@ public class CacheManager {
 		return cache;
 	}
 	
+<<<<<<< HEAD
 	public static void clear() {
 		for(Cache<?> cache : CACHES) {
 			cache.close();
 		}
 		
 		CACHES.clear();
+=======
+	public static void clear() throws Exception {
+		for(Cache<?> cache : CACHES) {
+			cache.close();
+		}
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	}
 }

@@ -17,7 +17,11 @@ import raccoonman.reterraforged.platform.RegistryUtil;
 import raccoonman.reterraforged.registries.RTFBuiltInRegistries;
 
 public class BiomeModifiers {
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	@ExpectPlatform
 	public static void bootstrap() {
 		throw new UnsupportedOperationException();

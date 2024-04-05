@@ -1,6 +1,9 @@
 package raccoonman.reterraforged.world.worldgen.biome;
 
+<<<<<<< HEAD
 @Deprecated
+=======
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 public enum Erosion implements BiomeParameter {
     LEVEL_0(-1.0F, -0.78F),
     LEVEL_1(-0.78F, -0.375F),

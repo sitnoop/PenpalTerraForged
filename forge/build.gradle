@@ -45,6 +45,10 @@ repositories {
 dependencies {
     forge("net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}")
     
+<<<<<<< HEAD
+=======
+//    modImplementation("com.github.glitchfiend:TerraBlender-forge:${rootProject.minecraft_version}-${rootProject.terrablender_version}")
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	compileOnly "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 //	modImplementation "com.github.glitchfiend:TerraBlender-forge:${rootProject.minecraft_version}-${rootProject.terrablender_version}"
     
@@ -63,12 +67,20 @@ sourceSets {
 }
 
 processResources {
+<<<<<<< HEAD
 	inputs.property "forgeVersion", rootProject.forge_version
+=======
+	inputs.property "forgeVersion", "47.2.19"
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
     inputs.property "version", project.version
 
     filesMatching("META-INF/mods.toml") {
         expand "version": project.version
+<<<<<<< HEAD
 		expand "forgeVersion": rootProject.forge_version
+=======
+		expand "forgeVersion": "47.2.19"
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
     }
 }
 

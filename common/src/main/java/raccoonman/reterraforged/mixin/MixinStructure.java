@@ -25,7 +25,10 @@ public class MixinStructure {
     private static void isValidBiome(GenerationStub generationStub, GenerationContext generationContext, CallbackInfoReturnable<Boolean> callback) {
 		RegistryAccess registry = generationContext.registryAccess();
 		RegistryLookup<StructureRule> structureRules = registry.lookupOrThrow(RTFRegistries.STRUCTURE_RULE);
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 		for(StructureRule structureRule : structureRules.listElements().map(Holder::value).toList()) {
 			if(!structureRule.test(generationContext.randomState(), generationStub.position())) {
 				callback.setReturnValue(false);

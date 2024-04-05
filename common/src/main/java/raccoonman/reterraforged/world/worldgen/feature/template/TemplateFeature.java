@@ -10,7 +10,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+<<<<<<< HEAD
 import net.minecraft.world.level.biome.Biome;
+=======
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -70,7 +73,11 @@ public class TemplateFeature extends Feature<Config<?>> {
 	        Paste paste = pasteType.get(template);
 	        T buffer = placement.createContext();
 	        if (paste.apply(world, buffer, pos, mirror, rotation, placement, config.paste())) {
+<<<<<<< HEAD
 	            ResourceKey<Biome> biome = world.getBiome(pos).unwrapKey().orElse(null);
+=======
+	            ResourceLocation biome = world.getBiome(pos).unwrapKey().map(ResourceKey::registry).orElse(null);
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	            for (TemplateDecorator<T> decorator : decoratorConfig.getDecorators(biome)) {
 	                decorator.apply(world, buffer, rand, modified);
 	            }

@@ -7,10 +7,17 @@ import raccoonman.reterraforged.client.data.RTFTranslationKeys;
 import raccoonman.reterraforged.client.gui.screen.page.LinkedPageScreen.Page;
 import raccoonman.reterraforged.client.gui.screen.presetconfig.PresetListPage.PresetEntry;
 import raccoonman.reterraforged.client.gui.widget.Slider;
+<<<<<<< HEAD
 import raccoonman.reterraforged.data.preset.settings.FilterSettings;
 import raccoonman.reterraforged.data.preset.settings.Preset;
 import raccoonman.reterraforged.data.preset.settings.FilterSettings.Erosion;
 import raccoonman.reterraforged.data.preset.settings.FilterSettings.Smoothing;
+=======
+import raccoonman.reterraforged.data.worldgen.preset.settings.FilterSettings;
+import raccoonman.reterraforged.data.worldgen.preset.settings.Preset;
+import raccoonman.reterraforged.data.worldgen.preset.settings.FilterSettings.Erosion;
+import raccoonman.reterraforged.data.worldgen.preset.settings.FilterSettings.Smoothing;
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 
 class FilterSettingsPage extends PresetEditorPage {
 	private Slider erosionDropletsPerChunk;

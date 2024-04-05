@@ -14,6 +14,7 @@
   	"MixinStructure",
   	"MixinMinecraftServer",
   	"MixinSpawnFinder",
+<<<<<<< HEAD
   	"MixinClimateSampler",
   	"MixinChunkStatus",
   	"MixinServerPacksSource",
@@ -25,6 +26,12 @@
   	"terrablender.MixinTargetPoint",
   	"terrablender.MixinNoiseChunk",
   	"worldpreview.SampleUtilsMixin"
+=======
+  	"terrablender.MixinParameterList",
+  	"terrablender.MixinClimateSampler",
+  	"terrablender.MixinTargetPoint",
+  	"terrablender.MixinNoiseChunk"
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
   ],
   "client": [
   	"ScreenInvoker"

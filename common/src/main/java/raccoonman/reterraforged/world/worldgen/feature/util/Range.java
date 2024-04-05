@@ -3,7 +3,11 @@ package raccoonman.reterraforged.world.worldgen.feature.util;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+<<<<<<< HEAD
 public record Range(float from, float to, float max, float range, boolean exclusive) {
+=======
+public record Range(float from, float to, float max, float range, @Deprecated boolean exclusive) {
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	public static final Codec<Range> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 		Codec.FLOAT.fieldOf("from").forGetter(Range::from),
 		Codec.FLOAT.fieldOf("to").forGetter(Range::to),

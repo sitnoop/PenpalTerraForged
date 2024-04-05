@@ -32,7 +32,11 @@ public class MixinMinecraftServer {
 		at = @At("TAIL")
 	)
 	public void MinecraftServer(Thread thread, LevelStorageSource.LevelStorageAccess arg2, PackRepository arg22, WorldStem arg3, Proxy proxy, DataFixer dataFixer, Services arg4, ChunkProgressListenerFactory arg5, CallbackInfo callback) {
+<<<<<<< HEAD
 		this.templateManager = new FeatureTemplateManager((MinecraftServer) (Object) this, this.getResourceManager());
+=======
+		this.templateManager = new FeatureTemplateManager(this.getResourceManager());
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	}
 	
 	public FeatureTemplateManager reterraforged$RTFMinecraftServer$getFeatureTemplateManager() {
@@ -40,8 +44,13 @@ public class MixinMinecraftServer {
 	}
 
 	@Inject(
+<<<<<<< HEAD
 		method = "lambda$reloadResources$27",
 		require = 1,
+=======
+		method = { "lambda$reloadResources$27" },
+		require = 0,
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 		at = @At("TAIL")
 	)
 	private void lambda$reloadResources$27(CallbackInfo callback) {

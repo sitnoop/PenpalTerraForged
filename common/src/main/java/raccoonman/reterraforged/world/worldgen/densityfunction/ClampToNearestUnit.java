@@ -6,7 +6,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.levelgen.DensityFunction;
 
+<<<<<<< HEAD
 record ClampToNearestUnit(DensityFunction function, int resolution) implements DensityFunction {
+=======
+public record ClampToNearestUnit(DensityFunction function, int resolution) implements DensityFunction {
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	public static final Codec<ClampToNearestUnit> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 		DensityFunction.HOLDER_HELPER_CODEC.fieldOf("function").forGetter(ClampToNearestUnit::function),
 		Codec.INT.fieldOf("resolution").forGetter(ClampToNearestUnit::resolution)

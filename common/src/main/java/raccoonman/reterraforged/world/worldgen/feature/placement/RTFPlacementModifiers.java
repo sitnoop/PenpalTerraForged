@@ -1,10 +1,15 @@
 package raccoonman.reterraforged.world.worldgen.feature.placement;
 
 import com.google.common.collect.ImmutableList;
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.Holder;
+=======
+import com.mojang.serialization.Codec;
+
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.LevelStem;
@@ -12,6 +17,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import raccoonman.reterraforged.platform.RegistryUtil;
 import raccoonman.reterraforged.world.worldgen.feature.placement.poisson.FastPoissonModifier;
+<<<<<<< HEAD
 import raccoonman.reterraforged.world.worldgen.noise.module.Noise;
 import raccoonman.reterraforged.world.worldgen.terrain.Terrain;
 
@@ -20,6 +26,11 @@ public class RTFPlacementModifiers {
 	public static final PlacementModifierType<TerrainFilter> TERRAIN_FILTER = register("terrain_filter", TerrainFilter.CODEC);
 	public static final PlacementModifierType<MacroBiomeFilter> MACRO_BIOME_FILTER = register("macro_biome_filter", MacroBiomeFilter.CODEC);
 	public static final PlacementModifierType<NoiseFilter> NOISE_FILTER = register("noise_filter", NoiseFilter.CODEC);
+=======
+
+public class RTFPlacementModifiers {
+	public static final PlacementModifierType<BlacklistDimensionFilter> BLACKLIST_DIMENSION = register("blacklist_dimension", BlacklistDimensionFilter.CODEC);
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	public static final PlacementModifierType<FastPoissonModifier> FAST_POISSON = register("fast_poission", FastPoissonModifier.CODEC);
 	public static final PlacementModifierType<LegacyCountExtraModifier> LEGACY_COUNT_EXTRA = register("legacy_count_extra", LegacyCountExtraModifier.CODEC);
 
@@ -27,6 +38,7 @@ public class RTFPlacementModifiers {
     }
     
     @SafeVarargs
+<<<<<<< HEAD
 	public static DimensionFilter dimensionFilter(ResourceKey<LevelStem>... levels) {
     	return new DimensionFilter(ImmutableList.copyOf(levels));
     }
@@ -43,6 +55,12 @@ public class RTFPlacementModifiers {
     	return new NoiseFilter(noise, threshold);
     }
     
+=======
+	public static BlacklistDimensionFilter blacklistDimensions(ResourceKey<LevelStem>... levels) {
+    	return new BlacklistDimensionFilter(ImmutableList.copyOf(levels));
+    }
+	
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
     public static FastPoissonModifier poisson(int radius, float scale, float biomeFade, int densityVariationScale, float densityVariation) {
 		 return poisson(radius, scale, 0.8F, biomeFade, densityVariationScale, densityVariation);
 	}
@@ -51,7 +69,10 @@ public class RTFPlacementModifiers {
 		 return new FastPoissonModifier(radius, scale, jitter, biomeFade, densityVariationScale, densityVariation);
 	}
     
+<<<<<<< HEAD
     @Deprecated
+=======
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
     public static LegacyCountExtraModifier countExtra(int count, float extraChance, int extraCount) {
     	return new LegacyCountExtraModifier(count, extraChance, extraCount);
     }

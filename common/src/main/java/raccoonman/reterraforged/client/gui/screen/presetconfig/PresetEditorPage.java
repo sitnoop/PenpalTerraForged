@@ -33,6 +33,7 @@ import raccoonman.reterraforged.client.gui.widget.Slider;
 import raccoonman.reterraforged.client.gui.widget.ValueButton;
 import raccoonman.reterraforged.concurrent.cache.CacheManager;
 import raccoonman.reterraforged.config.PerformanceConfig;
+<<<<<<< HEAD
 import raccoonman.reterraforged.data.preset.PresetData;
 import raccoonman.reterraforged.data.preset.settings.Preset;
 import raccoonman.reterraforged.data.preset.settings.WorldSettings;
@@ -43,6 +44,18 @@ import raccoonman.reterraforged.world.worldgen.cell.Cell;
 import raccoonman.reterraforged.world.worldgen.heightmap.Levels;
 import raccoonman.reterraforged.world.worldgen.noise.NoiseUtil;
 import raccoonman.reterraforged.world.worldgen.tile.Tile;
+=======
+import raccoonman.reterraforged.data.worldgen.preset.settings.Preset;
+import raccoonman.reterraforged.data.worldgen.preset.settings.SpawnType;
+import raccoonman.reterraforged.data.worldgen.preset.settings.WorldSettings;
+import raccoonman.reterraforged.registries.RTFRegistries;
+import raccoonman.reterraforged.world.worldgen.GeneratorContext;
+import raccoonman.reterraforged.world.worldgen.cell.Cell;
+import raccoonman.reterraforged.world.worldgen.cell.heightmap.Levels;
+import raccoonman.reterraforged.world.worldgen.densityfunction.tile.Tile;
+import raccoonman.reterraforged.world.worldgen.noise.NoiseUtil;
+import raccoonman.reterraforged.world.worldgen.noise.module.Noise;
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 import raccoonman.reterraforged.world.worldgen.util.PosUtil;
 
 public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, AbstractWidget, AbstractWidget> {
@@ -129,13 +142,22 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 	    
 	    private String hoveredCoords = "";
 	    //TODO maybe make this a map or something instead?
+<<<<<<< HEAD
 	    private String[] legendValues = {"", "", "", ""};
 	    private Component[] legendLabels = { Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_AREA), Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_TERRAIN), Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_BIOME), Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_NOISE_VALUE) };
+=======
+	    private String[] legendValues = {"", "", ""};
+	    private Component[] legendLabels = { Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_AREA), Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_TERRAIN), Component.translatable(RTFTranslationKeys.GUI_LABEL_PREVIEW_BIOME) };
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	    
 	    private int offsetX, offsetZ;
 
 	    public Preview() {
 	        super(-1, -1, -1, -1, CommonComponents.EMPTY, (b) -> {
+<<<<<<< HEAD
+=======
+		    	System.out.println("clicked");
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	        	Minecraft mc = Minecraft.getInstance();
 	        	MouseHandler mouse = mc.mouseHandler;
 	        	if(b instanceof Preview self) {
@@ -152,6 +174,7 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 	        RegistryAccess.Frozen registries = settings.worldgenLoadContext();
 	        HolderLookup.Provider provider = PresetEditorPage.this.preset.getPreset().buildPatch(registries);
 	        HolderGetter<Preset> presets = provider.lookupOrThrow(RTFRegistries.PRESET);
+<<<<<<< HEAD
 	        Preset preset = presets.getOrThrow(PresetData.PRESET).value();
 	        WorldSettings world = preset.world();
 	        WorldSettings.Properties properties = world.properties;
@@ -162,12 +185,32 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 				.resultOrPartial(RTFCommon.LOGGER::error)
 				.orElseGet(PerformanceConfig::makeDefault);
 	        GeneratorContext generatorContext = GeneratorContext.makeUncached(preset, (int) settings.options().seed(), FACTOR, 0, config.batchCount());
+=======
+	        HolderGetter<Noise> noises = provider.lookupOrThrow(RTFRegistries.NOISE);
+	        Preset preset = presets.getOrThrow(Preset.KEY).value();
+	        WorldSettings world = preset.world();
+	        WorldSettings.Properties properties = world.properties;
+	        
+	        try {
+				CacheManager.clear();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			PerformanceConfig config = PerformanceConfig.read(PerformanceConfig.DEFAULT_FILE_PATH)
+				.resultOrPartial(RTFCommon.LOGGER::error)
+				.orElseGet(PerformanceConfig::makeDefault);
+	        GeneratorContext generatorContext = GeneratorContext.makeUncached(preset, noises, (int) settings.options().seed(), FACTOR, 0, config.batchCount());
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	        
 	        this.centerX = 0;
 	        this.centerZ = 0;
 	        
 	        if(preset.world().properties.spawnType == SpawnType.CONTINENT_CENTER) {
+<<<<<<< HEAD
 	        	long nearestContinentCenter = generatorContext.localHeightmap.get().continent().getNearestCenter(this.offsetX, this.offsetZ);
+=======
+	        	long nearestContinentCenter = generatorContext.lookup.getHeightmap().continent().getNearestCenter(this.offsetX, this.offsetZ);
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	        	this.centerX = PosUtil.unpackLeft(nearestContinentCenter);
 	        	this.centerZ = PosUtil.unpackRight(nearestContinentCenter);
 	        } else {
@@ -195,8 +238,16 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 	    
 	    public void close() throws Exception {
 	    	this.texture.close();
+<<<<<<< HEAD
 
 	    	CacheManager.clear();
+=======
+	    	try {
+				CacheManager.clear();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	    }
 
 	    @Override
@@ -233,7 +284,10 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 	                Cell cell = this.tile.lookup(ix, iz);
 	                this.legendValues[1] = getTerrainName(cell);
 	                this.legendValues[2] = getBiomeName(cell);
+<<<<<<< HEAD
 	                this.legendValues[3] = String.valueOf(PresetEditorPage.this.renderMode.getValue().getNoiseValue(cell));
+=======
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	
 	                int dx = (ix - (this.tile.getBlockSize().size() / 2)) * zoom;
 	                int dz = (iz - (this.tile.getBlockSize().size() / 2)) * zoom;
@@ -318,7 +372,11 @@ public abstract class PresetEditorPage extends BisectedPage<PresetConfigScreen, 
 	        if (terrain.contains("river")) {
 	            return "river";
 	        }
+<<<<<<< HEAD
 	        return cell.biomeType.name().toLowerCase();
+=======
+	        return cell.biome.name().toLowerCase();
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	    }
 	}
 }

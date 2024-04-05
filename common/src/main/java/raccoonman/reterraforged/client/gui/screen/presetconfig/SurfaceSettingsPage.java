@@ -1,5 +1,6 @@
 package raccoonman.reterraforged.client.gui.screen.presetconfig;
 
+<<<<<<< HEAD
 import java.util.Optional;
 
 import net.minecraft.network.chat.Component;
@@ -106,4 +107,8 @@ public class SurfaceSettingsPage extends PresetEditorPage {
 	public Optional<Page> next() {
 		return Optional.of(new CaveSettingsPage(this.screen, this.preset));
 	}
+=======
+public class SurfaceSettingsPage {
+
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 }

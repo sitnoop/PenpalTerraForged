@@ -11,6 +11,10 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+<<<<<<< HEAD
+=======
+import net.minecraft.world.level.levelgen.Heightmap;
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -67,7 +71,11 @@ public class BushFeature extends Feature<BushFeature.Config> {
 	}
 
     private boolean place(LevelAccessor world, BlockPos.MutableBlockPos center, BlockPos.MutableBlockPos pos, RandomSource random, Config config) {
+<<<<<<< HEAD
 //        center.setY(world.getHeight(Heightmap.Types.WORLD_SURFACE, center.getX(), center.getZ()));
+=======
+        center.setY(world.getHeight(Heightmap.Types.WORLD_SURFACE, center.getX(), center.getZ()));
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 
         // don't replace solid blocks
         if (!BlockUtils.canTreeReplace(world, center)) {

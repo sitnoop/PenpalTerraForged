@@ -23,7 +23,11 @@ public class MixinMinecraftServer {
 		at = @At("TAIL")
 	)
 	public void MinecraftServer(CallbackInfo callback) {
+<<<<<<< HEAD
 		this.templateManager = new FeatureTemplateManager((MinecraftServer) (Object) this, this.getResourceManager());
+=======
+		this.templateManager = new FeatureTemplateManager(this.getResourceManager());
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	}
 	
 	public FeatureTemplateManager reterraforged$RTFMinecraftServer$getFeatureTemplateManager() {
@@ -31,8 +35,15 @@ public class MixinMinecraftServer {
 	}
 	
 	@Inject(
+<<<<<<< HEAD
 		method = "method_29440",
 		at = @At("TAIL")
+=======
+		method = { "method_29440" },
+		require = 0,
+		at = @At("TAIL"),
+		remap = false
+>>>>>>> 29239f1f164d19dbfcccaca4a8277d64e784207c
 	)
 	private void method_29440(CallbackInfo callback) {
 		this.templateManager.onReload(this.getResourceManager());
